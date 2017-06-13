@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/b20d7fe115db83991b04ab5c1a57595a1d2b8747/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_302ef95765ab85f82ca1447fbdca0621e3401d3b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/2cc97db795a71c6c61f8b684605c024eb9169844/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c5e6490573cd2cc8018417f60ddd251138b6ed61">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e764242c14bb821a67051211322bd87e11e16575/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_1ac48af5255bd2e261d2b67c0189184144ae216f/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/.android/build-cache/edd582227d9ac76845d42799c93ce2cd07cfc09f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/classes_406f3ddff3cf555e00032f1bd05701fc0da3ea8b.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/059c4f9e3f0a8c2716424b81f6288efb47f60bf7/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_23c3709c58f3bc5ff378204e9f9c5e51c1b49568/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/3ba717debea886f5a157556bc5aeedfdbd7fcc2f/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_33d3c680b78bee61e39e45813b4e477743b08bbd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/00ef2f4bf45c54fbf68756e0a6a60a67b56bd2fd/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3288bbf7569b08b72987d1e5897ca04c234cf00c/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/.android/build-cache/f2dce6e7cbdab67adbbcd153b5c2000bd709a270/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/classes_a16b86b93391a5e78dcda164950647e40e01636e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/.android/build-cache/bb6c6d825ea0d36580eaf2603d83e132178bf621/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/classes_4fa2f4de82027b888f1e4713e7c01f700a117dad.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/.android/build-cache/194b2a62b3327b41a8e82936ce5d4d0c51016eb0/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="15ad6a46fb8e2ed86556e0b330d738b589dc62c7">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/classes_b709ec451cff2013f8b582da148103b7d61e04d6.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.1_01277240560f4aadf6f7fff0c50cdaae0405d4f1/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/.android/build-cache/a99720983bb58e2a875010bcbbd41eb545574553/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/classes_e8ef45da8129c771ca86d5f48f53b779294d2ddf.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/45c29979a4eebcd3120ded6c94028a7f9f47108f/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3e85254a87f2ec0210776328c326253c2890454d/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/.android/build-cache/fd3836cda196effea734885ed9448a6d14f33845/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/classes_6e33a2aeddcddd46ac60ed97f6b2b5972e851319.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/libs/volley.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d4aaa36e04ee71a83444f8367c97a46fda662d2c">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/2/volley_61253ec0ff39c9fc3f7cf8326be7131980e5a4d1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/5acd26bae683d0d992c5b0bbeecb4334180159c9/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1ac97c695541ce1305cea0b3c9bb3dc1f851eca3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/202d6c3d89b41aefec439be2f48bd2c620c2bfec/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_661b212daccaf8f7e9c3144fc21adf2f8a99c56a/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0_ae25a6ccc69e8b51d9ffaa916d4bb231b1f8e3d5.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/f2ef6d9f07e788390e71687f3657ce39b116eecb/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="aad07a374c48a359c774083dd608d7d8d48def05">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_19a9740f881ae769f5bc7df94e991a82a9bd0d09/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/80f83fb87e2a999da0e3674a0c608348fd310809/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_28ce0aa1676b35099b600c6d66f0e16ca452d01d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/c5329f078276cf5a2d8dd2a69c449828286a2921/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f94d6d655e2d971aef8b9d7db0b364918875815f/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/.android/build-cache/fe93fdeccc4c6c4fff8bc706d61b5427e88cb628/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/classes_d3c762a8d5c8a09c98232153f728495ca3d58518.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/.android/build-cache/f790918fcea68c84319262445f5cd0c7a7d0b684/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/classes_3fc2a08565a620d3a324f814d1131d9b11bcc1b8.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e31ced280d23bb640c583b0dd65b5796f745c455">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_8b97110bb965aaea043a660686251ca64479bee3/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/.android/build-cache/90d38a68c7b5f525d288905a28330064fe98e858/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/classes_c98e2c2fed7e25fbe6a0f96bfd3846c39f9c204a.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/edd582227d9ac76845d42799c93ce2cd07cfc09f/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_406f3ddff3cf555e00032f1bd05701fc0da3ea8b/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_1ac48af5255bd2e261d2b67c0189184144ae216f.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/b8c96f58c1f09feaf48d291757717189caf629ec/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_031c80ad0a51a47114181c585fa9238d0631cd80/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/.android/build-cache/00ef2f4bf45c54fbf68756e0a6a60a67b56bd2fd/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/classes_3288bbf7569b08b72987d1e5897ca04c234cf00c.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/f2dce6e7cbdab67adbbcd153b5c2000bd709a270/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a16b86b93391a5e78dcda164950647e40e01636e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/194b2a62b3327b41a8e82936ce5d4d0c51016eb0/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="15ad6a46fb8e2ed86556e0b330d738b589dc62c7">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b709ec451cff2013f8b582da148103b7d61e04d6/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/.android/build-cache/3ba717debea886f5a157556bc5aeedfdbd7fcc2f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/classes_33d3c680b78bee61e39e45813b4e477743b08bbd.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_eb99cdb0ac0e4ac3711afe0536a7b70824366d4e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/bb6c6d825ea0d36580eaf2603d83e132178bf621/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4fa2f4de82027b888f1e4713e7c01f700a117dad/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/ab89fcdb02ab8dfc88a36537c098fc37ce98c236/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5d804de251a17446fa6662cd70fa26b57829c3b5/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_01277240560f4aadf6f7fff0c50cdaae0405d4f1.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/fd3836cda196effea734885ed9448a6d14f33845/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6e33a2aeddcddd46ac60ed97f6b2b5972e851319/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/a99720983bb58e2a875010bcbbd41eb545574553/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e8ef45da8129c771ca86d5f48f53b779294d2ddf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/3edef8d544c48fc72b4dba627b2766e394414fd4/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6d980d7d27b9ca477e4f88021739ec41d001fe81/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/3266edf5b25486af4820c1f03d9fc4b73e25edc6/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_00d0d1910c0f5cbdfd60fe660f82c3a39e0942d7/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/.android/build-cache/c5329f078276cf5a2d8dd2a69c449828286a2921/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/classes_f94d6d655e2d971aef8b9d7db0b364918875815f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/.android/build-cache/202d6c3d89b41aefec439be2f48bd2c620c2bfec/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/classes_661b212daccaf8f7e9c3144fc21adf2f8a99c56a.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-android-1.2.0_ae25a6ccc69e8b51d9ffaa916d4bb231b1f8e3d5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/fe93fdeccc4c6c4fff8bc706d61b5427e88cb628/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d3c762a8d5c8a09c98232153f728495ca3d58518/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nikhilsuri/.android/build-cache/5acd26bae683d0d992c5b0bbeecb4334180159c9/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/pre-dexed/debug/classes_1ac97c695541ce1305cea0b3c9bb3dc1f851eca3.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/90d38a68c7b5f525d288905a28330064fe98e858/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c98e2c2fed7e25fbe6a0f96bfd3846c39f9c204a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nikhilsuri/.android/build-cache/f790918fcea68c84319262445f5cd0c7a7d0b684/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="/Users/nikhilsuri/AndroidStudioProjects/FBTinder/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3fc2a08565a620d3a324f814d1131d9b11bcc1b8/classes.dex" />
+    </item>
+
+</items>

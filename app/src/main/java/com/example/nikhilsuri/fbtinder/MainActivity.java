@@ -52,45 +52,29 @@ public class MainActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //  Log.e("Main", "create");
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         fireAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = fireAuth.getCurrentUser();
-
-//        // if there is active profile on this app
-//        profileTracker = new ProfileTracker() {
-//            @Override
-//            protected void onCurrentProfileChanged(
-//                    Profile oldProfile,
-//                    Profile currentProfile) {
-//                if (currentProfile != null) {
-//                    Log.e(TAG, "s");
-//
-//                    userId = currentProfile.getId();
-//                    try {
-//                        profilePicture = new URL("https://graph.facebook.com/" + userId + "/picture?width=500&height=500");
-//                    } catch (MalformedURLException e) {
-//                        e.printStackTrace();
-//                    }
-//                    Log.e(TAG, profilePicture.toString());
-//                    firstName = currentProfile.getFirstName();
-//                    lastName = currentProfile.getLastName();
-//                    getPosts();
-//                    finish();
-//                }
-//            }
-//        };
-
-        setContentView(R.layout.activity_main);
         callbackManager = CallbackManager.Factory.create();
-        loginButton = (LoginButton) findViewById(login_button);
-        FacebookCallback<LoginResult> callback =getFaceBookCallBack();
-        loginButton.setReadPermissions("email", "user_birthday", "user_posts");
-        loginButton.registerCallback(callbackManager, callback);
+        FacebookCallback<LoginResult> callback = getFaceBookCallBack();
+        boolean fbLogin = isLoggedIn();
+        //if user is not logged in from facebook then trigger fb login
+        //else check if it exixts in fire base or not
+        if (fbLogin == false) {
+            setContentView(R.layout.activity_main);
+            loginButton = (LoginButton) findViewById(login_button);
+            loginButton.setReadPermissions("email", "user_birthday", "user_posts");
+            loginButton.registerCallback(callbackManager, callback);
+
+        } else {
+            saveFacebookCredentialsInFirebase(AccessToken.getCurrentAccessToken());
+        }
+
 
     }
 
     private FacebookCallback<LoginResult> getFaceBookCallBack() {
-      return   new FacebookCallback<LoginResult>() {
+        return new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(final LoginResult loginResult) {
                 GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
@@ -99,25 +83,24 @@ public class MainActivity extends FragmentActivity {
                         Log.e(TAG, object.toString());
                         Log.e(TAG, response.toString());
                         try {
-                            //store user in firebase data base
-                            saveFacebookCredentialsInFirebase(loginResult.getAccessToken());
-
                             userId = object.getString("id");
-                            profilePicture = new URL("https://graph.facebook.com/" + userId + "/picture?width=500&height=500");
-                            Log.e(TAG, profilePicture.toString());
-                            if (object.has("first_name"))
-                                firstName = object.getString("first_name");
-                            if (object.has("last_name"))
-                                lastName = object.getString("last_name");
-
-
-                            getPosts();
-                            finish();
                         } catch (JSONException e) {
                             e.printStackTrace();
-                        } catch (MalformedURLException e) {
-                            e.printStackTrace();
                         }
+                        //store user in firebase data base if not exists and calls to swipe activity with proper user present
+                        saveFacebookCredentialsInFirebase(loginResult.getAccessToken());
+
+//                            profilePicture = new URL("https://graph.facebook.com/" + userId + "/picture?width=500&height=500");
+//                            Log.e(TAG, profilePicture.toString());
+//                            if (object.has("first_name"))
+//                                firstName = object.getString("first_name");
+//                            if (object.has("last_name"))
+//                                lastName = object.getString("last_name");
+//
+
+                        // getPosts();
+                        // finish();
+
                     }
                 });
                 Bundle parameters = new Bundle();
@@ -128,6 +111,7 @@ public class MainActivity extends FragmentActivity {
 
             @Override
             public void onCancel() {
+                signOut();
             }
 
             @Override
@@ -138,31 +122,6 @@ public class MainActivity extends FragmentActivity {
     }
 
 
-    private void getPosts() {
-        GraphRequest request = new GraphRequest(
-                AccessToken.getCurrentAccessToken(), "/me/posts", null, HttpMethod.GET,
-                new GraphRequest.Callback() {
-                    public void onCompleted(GraphResponse response) {
-                        try {
-                            Log.e(TAG, response.toString());
-                            Intent main = new Intent(MainActivity.this, SwipeActivity.class);
-                            main.putExtra("name", firstName);
-                            main.putExtra("surname", lastName);
-                            main.putExtra("imageUrl", profilePicture.toString());
-                            postsArray = response.getJSONObject().getJSONArray("data");
-                            Log.e(TAG, postsArray.toString());
-                            main.putExtra("postsArray", postsArray.toString());
-                            startActivity(main);
-                        } catch (Exception q) {
-                            Log.e(TAG, q.getStackTrace().toString());
-                        }
-                    }
-                });
-        Bundle params = new Bundle();
-        params.putString("fields", "id,caption,created_time,description,icon,link,message,name,permalink_url,picture,place,shares,story");
-        request.setParameters(params);
-        request.executeAsync();
-    }
 
 
 
@@ -171,11 +130,7 @@ public class MainActivity extends FragmentActivity {
         super.onStart();
         //check if user is signed it or not
         //if signed in then call swipe activity customized
-        FirebaseUser currentUser = fireAuth.getCurrentUser();
-        if(currentUser!=null){
-            String uuId=fireAuth.getCurrentUser().getUid();
-        }
-
+        //  Log.e(TAG, "start");
     }
 
 
@@ -188,7 +143,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        profileTracker.stopTracking();
+
     }
 
     public boolean isLoggedIn() {
@@ -207,10 +162,13 @@ public class MainActivity extends FragmentActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = fireAuth.getCurrentUser();
-
+                            Log.d(TAG, user.toString());
+                            //start Swipe activity
+                            Intent main = new Intent(MainActivity.this, SwipeActivity.class);
+                            startActivity(main);
                         } else {
-                            // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            signOut();
                         }
 
                         // [START_EXCLUDE]

@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.facebook.AccessToken;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.HttpMethod;
 import com.facebook.login.LoginManager;
 import com.facebook.share.widget.ShareDialog;
 import com.mindorks.placeholderview.SwipeDecor;
@@ -53,16 +57,12 @@ public class SwipeActivity extends Activity {
                         .setSwipeOutMsgLayoutId(R.layout.swipe_left));
 
 
-        Bundle inBundle = getIntent().getExtras();
-        try {
-            name = inBundle.getString("name");
-            surname = inBundle.getString("surname");
-            profilePic = inBundle.getString("imageUrl");
-            postsArray = new JSONArray(inBundle.getString("postsArray"));
+        getPosts();
 
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+    }
+
+    private void fillCards() {
+
         for (int i = 0; i < postsArray.length(); ++i) {
 
             FeedItem feedItem = null;
@@ -89,6 +89,28 @@ public class SwipeActivity extends Activity {
             }
         });
 
+    }
+
+    private void getPosts() {
+        GraphRequest request = new GraphRequest(
+                AccessToken.getCurrentAccessToken(), "/me/posts", null, HttpMethod.GET,
+                new GraphRequest.Callback() {
+                    public void onCompleted(GraphResponse response) {
+                        try {
+                            Log.e(TAG, response.toString());
+                            postsArray = response.getJSONObject().getJSONArray("data");
+
+                            Log.e(TAG, postsArray.toString());
+                            fillCards();
+                        } catch (Exception q) {
+                            Log.e(TAG, q.getStackTrace().toString());
+                        }
+                    }
+                });
+        Bundle params = new Bundle();
+        params.putString("fields", "id,caption,created_time,description,icon,link,message,name,permalink_url,picture,place,shares,story");
+        request.setParameters(params);
+        request.executeAsync();
     }
 
     private void logout() {

@@ -1,5 +1,14 @@
 package com.example.nikhilsuri.fbtinder;
 
+import android.nfc.Tag;
+import android.util.Log;
+
+import org.json.JSONObject;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by nikhilsuri on 5/14/17.
  */
@@ -115,5 +124,80 @@ public class FeedItem {
     }
     public String getpostName(){
         return postName;
+    }
+
+    @Override
+    public String toString() {
+        return "FeedItem{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", status='" + status + '\'' +
+                ", image='" + image + '\'' +
+                ", profilePic='" + profilePic + '\'' +
+                ", timeStamp='" + timeStamp + '\'' +
+                ", url='" + url + '\'' +
+                ", message='" + message + '\'' +
+                ", story='" + story + '\'' +
+                ", locationUrl='" + locationUrl + '\'' +
+                ", postDescription='" + postDescription + '\'' +
+                ", postName='" + postName + '\'' +
+                '}';
+    }
+    public  FeedItem(JSONObject post, String displayName,String profilePic) {
+
+        try {
+            //profile name
+            String story = "";
+            if (!post.has("story"))
+                story = displayName;
+            else {
+                story = story + "  " + post.getString("story");
+            }
+            this.setStory(story);
+            //profile pic
+            if (profilePic != null && !profilePic.isEmpty())
+                this.setProfilePic(profilePic);
+            //heading ,message
+            if (post.has("message"))
+                this.setStatus(post.getString("message"));
+            // post image
+            String image = post.isNull("picture") ? null : post
+                    .getString("picture");
+
+            this.setImge(image);
+            //post message and description
+            if (post.has("description")) {
+                this.setPostDescription(post.getString("description"));
+            }
+            if (post.has("name")) {
+                this.setpostName(post.getString("name"));
+            }
+
+
+            //created time
+            String dateTime[] = post.getString("created_time").split("T");
+            DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
+            DateFormat outputFormat = new SimpleDateFormat("dd MMM yyyy");
+            Date date = inputFormat.parse(dateTime[0]);
+            String dateString = outputFormat.format(date);
+            this.setTimeStamp(dateString);
+            boolean isLocationPost = post.has("place");
+            //location url if exits
+            if (isLocationPost) {
+                String latitude = post.getJSONObject("place").getJSONObject("location").getString("latitude");
+                String longitude = post.getJSONObject("place").getJSONObject("location").getString("longitude");
+                String locationUrl = "http://maps.google.com/maps/api/staticmap?center=" +
+                        latitude + "," + longitude +
+                        "&zoom=15&size=200x200&sensor=false";
+                this.setLocationUrl(locationUrl);
+
+
+            }
+            this.setId(post.getString("id"));
+        } catch (Exception e) {
+
+        }
+
+
     }
 }

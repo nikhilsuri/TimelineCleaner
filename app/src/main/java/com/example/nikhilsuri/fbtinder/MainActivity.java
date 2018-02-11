@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.View;
 
 import com.facebook.AccessToken;
-import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -15,7 +15,7 @@ import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
-import com.facebook.ProfileTracker;
+import com.facebook.Profile;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -26,46 +26,37 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.example.nikhilsuri.fbtinder.R.id.login_button;
 
 public class MainActivity extends FragmentActivity {
 
     private CallbackManager callbackManager;
-    private AccessTokenTracker accessTokenTracker;
-    private ProfileTracker profileTracker;
     private LoginButton loginButton;
-    private String firstName, lastName, email, birthday, gender;
-    private URL profilePicture;
-    private String userId;
     private String TAG = "LoginActivity";
-    JSONArray postsArray;
     private FirebaseAuth fireAuth;
+    private FirebaseDatabase database;
+    private DatabaseReference myRef;
+    static final int SWIPE_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //  Log.e("Main", "create");
-        FacebookSdk.sdkInitialize(this.getApplicationContext());
-        fireAuth = FirebaseAuth.getInstance();
-        callbackManager = CallbackManager.Factory.create();
-        FacebookCallback<LoginResult> callback = getFaceBookCallBack();
+        facebookInitialization();
         boolean fbLogin = isLoggedIn();
-        //if user is not logged in from facebook then trigger fb login
-        //else check if it exixts in fire base or not
         if (fbLogin == false) {
-            setContentView(R.layout.activity_main);
-            loginButton = (LoginButton) findViewById(login_button);
-            loginButton.setReadPermissions("email", "user_birthday", "user_posts");
-            loginButton.registerCallback(callbackManager, callback);
-
+            loginWithFacebook();
         } else {
             saveFacebookCredentialsInFirebase(AccessToken.getCurrentAccessToken());
         }
@@ -73,40 +64,40 @@ public class MainActivity extends FragmentActivity {
 
     }
 
+    private void loginWithFacebook() {
+        setContentView(R.layout.activity_main);
+        loginButton = (LoginButton) findViewById(login_button);
+        loginButton.setReadPermissions("email", "user_birthday", "user_posts");
+        loginButton.registerCallback(callbackManager, getFaceBookCallBack());
+    }
+
+    private void facebookInitialization() {
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
+        fireAuth = FirebaseAuth.getInstance();
+        callbackManager = CallbackManager.Factory.create();
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference();
+    }
+
+
     private FacebookCallback<LoginResult> getFaceBookCallBack() {
         return new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(final LoginResult loginResult) {
+                findViewById(login_button).setVisibility(View.INVISIBLE);
                 GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
                         Log.e(TAG, object.toString());
                         Log.e(TAG, response.toString());
-                        try {
-                            userId = object.getString("id");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        //store user in firebase data base if not exists and calls to swipe activity with proper user present
                         saveFacebookCredentialsInFirebase(loginResult.getAccessToken());
-
-//                            profilePicture = new URL("https://graph.facebook.com/" + userId + "/picture?width=500&height=500");
-//                            Log.e(TAG, profilePicture.toString());
-//                            if (object.has("first_name"))
-//                                firstName = object.getString("first_name");
-//                            if (object.has("last_name"))
-//                                lastName = object.getString("last_name");
-//
-
-                        // getPosts();
-                        // finish();
-
                     }
                 });
                 Bundle parameters = new Bundle();
                 parameters.putString("fields", "id, first_name, last_name");
                 request.setParameters(parameters);
                 request.executeAsync();
+
             }
 
             @Override
@@ -122,15 +113,9 @@ public class MainActivity extends FragmentActivity {
     }
 
 
-
-
-
     @Override
     public void onStart() {
         super.onStart();
-        //check if user is signed it or not
-        //if signed in then call swipe activity customized
-        //  Log.e(TAG, "start");
     }
 
 
@@ -138,6 +123,13 @@ public class MainActivity extends FragmentActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
+        if (SWIPE_ACTIVITY_REQUEST_CODE == requestCode) {
+            //logout
+            if (resultCode == -1) {
+                signOut();
+            }
+
+        }
     }
 
     @Override
@@ -154,32 +146,62 @@ public class MainActivity extends FragmentActivity {
 
     private void saveFacebookCredentialsInFirebase(AccessToken accessToken) {
         AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
+
         fireAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithCredential:success");
-                            FirebaseUser user = fireAuth.getCurrentUser();
-                            Log.d(TAG, user.toString());
-                            //start Swipe activity
-                            Intent main = new Intent(MainActivity.this, SwipeActivity.class);
-                            startActivity(main);
-                        } else {
+                        if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             signOut();
-                        }
+                        } else {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithCredential:success");
+                            final Profile profile = Profile.getCurrentProfile();
+                            final FirebaseUser user = fireAuth.getCurrentUser();
+                            myRef.child(Constants.USERSTAG).child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.getValue() != null) {
+                                        // user already exists
+                                        startActivity();
+                                    } else {
+                                        //get fb details and store user
+                                        Map<String, Object> userValues = new HashMap<>();
+                                        userValues.put(Constants.DISPLAY_NAME, user.getDisplayName());
+                                        userValues.put(Constants.PROFILE_PIC, profile.getProfilePictureUri(1000, 1000).toString());
+                                        SwipedOutPosts swipedOutPosts = new SwipedOutPosts();
+                                        SwipedOutPosts deletedPosts = new SwipedOutPosts();
+                                        swipedOutPosts.getSwipedOutPostHashMap().put("Random", new SwipedOutPost("DUMMY", new Date()));
+                                        userValues.put(Constants.CHECKED_OUT_POSTS, swipedOutPosts);
+                                        deletedPosts.getSwipedOutPostHashMap().put("Random", new SwipedOutPost("DUMMY", new Date()));
+                                        userValues.put(Constants.DELETED_POSTS, deletedPosts);
+                                        myRef.child(Constants.USERSTAG).child(user.getUid()).setValue(userValues);
+                                        startActivity();
+                                    }
+                                }
 
-                        // [START_EXCLUDE]
-                        // [END_EXCLUDE]
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+                        }
                     }
                 });
+
     }
+
+    public void startActivity() {
+        Intent main = new Intent(MainActivity.this, SwipeActivity.class);
+        startActivityForResult(main, SWIPE_ACTIVITY_REQUEST_CODE);
+    }
+
 
     public void signOut() {
         fireAuth.signOut();
         LoginManager.getInstance().logOut();
+        loginWithFacebook();
 
     }
 }

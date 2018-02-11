@@ -19,6 +19,10 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by nikhilsuri on 5/15/17.
  */
@@ -49,15 +53,17 @@ public class PostSwipe {
     private FeedItem feedItem;
     private Context mContext;
     private SwipePlaceHolderView mSwipeView;
+    private SwipeActivity swipeActivity;
 
     public PostSwipe() {
         super();
     }
 
-    public PostSwipe(final Context context, FeedItem feed, SwipePlaceHolderView swipeView) {
+    public PostSwipe(final Context context, FeedItem feed, SwipePlaceHolderView swipeView, SwipeActivity swipeActivity) {
         mContext = context;
         feedItem = feed;
         mSwipeView = swipeView;
+        this.swipeActivity = swipeActivity;
 
     }
 
@@ -103,26 +109,6 @@ public class PostSwipe {
                         }
                     });
         }
-
-//        //image or link description
-//        String description = "";
-//        boolean descriptionAvailable = false;
-//        if (feedItem.getpostName() != null) {
-//            description = feedItem.getpostName();
-//            descriptionAvailable = true;
-//        }
-////        if (feedItem.getPostDescription() != null) {
-////            description = description + feedItem.getPostDescription();
-////            descriptionAvailable = true;
-////        }
-//        if (descriptionAvailable) {
-//            linkDescription.setText(description);
-//        } else {
-//            postImage.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-//
-//        }
-
-
         // user profile pic
 
         profilePic.setImageUrl(feedItem.getProfilePic(), imageLoader);
@@ -143,10 +129,20 @@ public class PostSwipe {
 
     }
 
+    @SwipeInState
+    private void onSwipeInState() {
+        Log.d("EVENT", "onSwipeInState");
+    }
+
     @SwipeOut
     private void onSwipedOut() {
         Log.d("EVENT", "onSwipedOut");
-        mSwipeView.addView(this);
+        Log.d("FeedItems", swipeActivity.feedItems.size() + ":" + swipeActivity.feedItems.get(0).toString());
+        getOpenFacebookIntent(mContext,feedItem.getId());
+        swipeActivity.feedItems.remove(0);
+        swipeActivity.swipedOutPosts.getSwipedOutPostHashMap().put(feedItem.getId(), new SwipedOutPost(feedItem.getId(), new Date()));
+        swipeActivity.deletedPosts.getSwipedOutPostHashMap().put(feedItem.getId(), new SwipedOutPost(feedItem.getId(), new Date()));
+        swipeActivity.checkForLastItems();
     }
 
     @SwipeCancelState
@@ -157,16 +153,18 @@ public class PostSwipe {
     @SwipeIn
     private void onSwipeIn() {
         Log.d("EVENT", "onSwipedIn");
+        Log.d("FeedItems", swipeActivity.feedItems.size() + ":" + swipeActivity.feedItems.get(0).toString());
+        swipeActivity.feedItems.remove(0);
+        swipeActivity.swipedOutPosts.getSwipedOutPostHashMap().put(feedItem.getId(), new SwipedOutPost(feedItem.getId(), new Date()));
+        swipeActivity.checkForLastItems();
+
     }
 
-    @SwipeInState
-    private void onSwipeInState() {
-        Log.d("EVENT", "onSwipeInState");
-    }
 
     @SwipeOutState
     private void onSwipeOutState() {
         Log.d("EVENT", "onSwipeOutState");
+
     }
 
 
@@ -176,17 +174,12 @@ public class PostSwipe {
         try {
 
             Intent intent
-                    = new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.facebook.com/" + userId + "/posts/" + postId));
+                    = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/" + userId + "/posts/" + postId));
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-           //TODO open in fb app
-           mContext.startActivity(intent);
-            // startActivity(intent);
-            /*context.getPackageManager().getPackageInfo("com.facebook.katana", 0);
-            return new Intent(Intent.ACTION_VIEW, Uri.parse("fb://" + userId + "/posts/" + postId));*/
+            //TODO open in fb app
+            mContext.startActivity(intent);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
-            //return new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/" + userId + "/posts/" + postId));
-
         }
 
     }

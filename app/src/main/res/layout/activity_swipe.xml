@@ -2,57 +2,97 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/com_facebook_blue"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#d3d3d3">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
         android:layout_gravity="top"
-        android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="1">
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/logo"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitCenter"
+            android:layout_centerInParent="true"
+            android:background="@drawable/logo"
+             />
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitEnd"
+            android:id="@+id/logout"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/logout" />
+</RelativeLayout>
 
-            android:layout_weight="0.28"
-            android:background="@drawable/app_logo" />
-
-        <ImageButton
-            android:id="@+id/cart"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/cart_pic" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="bottom"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/rejectBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/com_facebook_close" />
-
-        <ImageButton
-            android:id="@+id/acceptBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/com_facebook_button_like_icon_selected" />
     </LinearLayout>
 
     <com.mindorks.placeholderview.SwipePlaceHolderView
         android:id="@+id/swipeView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </com.mindorks.placeholderview.SwipePlaceHolderView>
+        android:layout_height="match_parent"
+        android:visibility="visible"></com.mindorks.placeholderview.SwipePlaceHolderView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<ImageButton-->
+                <!--android:id="@+id/rejectBtn"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_toLeftOf="@+id/centerPoint"-->
+                <!--android:background="@drawable/cross"-->
+                <!--android:scaleType="center" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/centerPoint"-->
+                <!--android:layout_width="0dip"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:text="" />-->
+
+            <!--<ImageButton-->
+                <!--android:id="@+id/acceptBtn"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_toRightOf="@+id/centerPoint"-->
+                <!--android:background="@drawable/tick"-->
+                <!--android:scaleType="fitXY" />-->
+
+        <!--</RelativeLayout>-->
+        <ImageButton
+            android:id="@+id/rejectBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/cross"/>
+        <ImageButton
+            android:id="@+id/acceptBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/tick"/>
+
+
+    </LinearLayout>
+
+
 </FrameLayout>
